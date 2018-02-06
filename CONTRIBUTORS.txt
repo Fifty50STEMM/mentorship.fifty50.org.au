@@ -1,0 +1,15 @@
+The original team:
+Nikita Bhatia (@Nikita1710)
+Tyrus Caldeira (@tetris12367)
+Nikhil Kumar (@Nick-Kumar)
+Yaya Lu (@yayalu)
+Adrian Sweatman
+Robert Whittaker (@Robwhit)
+Alvis Yin (@alvisyin)
+
+Contributors:
+BBTan (@BBTan)
+vlad (@vieira83)
+Himanshu Patel (pythonist)
+Pratyaksh Singh (@xamfy)
+Elena Williams (@elena)
