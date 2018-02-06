@@ -1,0 +1,54 @@
+<section class="bg-dark" style="padding-bottom:200px; padding-left: 100px; padding-right: 100px; max-height:	1750px">
+
+  <h2 class="section-heading" style="text-align:center;">Catch up with us...</h2>
+  <hr>
+  <div class="container" style="text-align:center;">
+    <div class="row" style="margin-bottom:20px; margin-right:110px">
+
+      <div class="col-sm-6" style="padding: 10px 10px 10px 10px">
+	<!-- Twitter feed -->
+	<h2 class="section-heading">... on Twitter!</h2>
+	<a class="twitter-timeline" href="https://twitter.com/anu_Fifty50" data-width="500" data-height="600">Latest tweets from ANU Fifty50!</a>
+        <script type="text/javascript">
+          $(document).ready(function(){
+          //$(window).resize(function() {
+          //		$('#feed').attr('data-width', $('#facebook_feed').width());
+          //	});
+          var newwidth = $(window).width() - 250;
+          $('#feed').css({width: newwidth+'px'});
+          });
+          $(window).resize(function() {
+          var newwidth = $(window).width() - 250;
+          $('#feed').css({width: newwidth+'px'});
+          $('#feed').redraw();
+          });
+        </script>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
+      <div class="col-sm-6" id="facebook_feed" style="padding: 10px 10px 10px 10px">
+	<!-- Facebook feed -->
+        <!-- for Facebook embedded stream -->
+	<h2 class="section-heading">... on Facebook!</h2>       
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+        </script>       
+	<div class="fb-page" data-href="https://www.facebook.com/ANUFifty50STEM/" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+	  <blockquote cite="https://www.facebook.com/ANUFifty50STEM/" class="fb-xfbml-parse-ignore">
+	    <a href="https://www.facebook.com/ANUFifty50STEM/">ANU Fifty50</a>
+	  </blockquote>
+	</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+

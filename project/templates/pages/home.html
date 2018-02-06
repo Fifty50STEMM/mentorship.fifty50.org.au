@@ -1,1 +1,166 @@
 {% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<header>
+  <div class="header-content">
+    <div class="header-content-inner">
+      <img src={% static "images/Fifty50Header.png" %} style="max-height:100%;width:100%;padding-left:50px;"></img>
+      <p style="color:rgba(0,0,0,1)">Learn to learn, make friends, and build a support network!</p>
+      <a href="{% url 'account_signup' %}" class="btn btn-primary btn-xl page-scroll">Join Us Today</a> <!-- link to signup page here -->
+    </div>
+  </div>
+</header>
+
+<section id="shouldyoujoinus">
+  <div class="container">
+    <div class="row" style="padding:0;margin:0;">
+      <div class="col-sm-12 text-center">
+        <h2 class="section-heading" style="color:#000">Should you join us?</h2>
+        <hr>
+        <img class="signupflowchart img img-responsive" src={% static "images/homepage/SignUpFlowchartDiagram.png" %}></img>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-xl sr-button"><span style="color:#111;">Sign up to be a</span> mentee!</a>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-xl sr-button"><span style="color:#111;">Sign up to be a</span> mentor!</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-dark" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">About Fifty50</h2>
+        <hr class="primary">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-lg-12 text-center">
+      <p class="muted-subtext">We are an organisation within the ANU aiming to promote gender equity in STEM.</p>
+    </div>
+    <div class="row" style="margin-bottom: 40px;">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <a href="http://www.anufifty50.com/" class="about-fifty50-headings">
+            <i class="fa fa-4x fa-users text-primary sr-icons"></i>
+            <h3>We help you!</h3>
+          </a>
+          <p class="muted-subtext">We want to assist with your transition to university.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <a href="http://www.anufifty50.com/" class="about-fifty50-headings">
+            <i class="fa fa-4x fa-commenting text-primary sr-icons"></i>
+            <h3>Networking</h3>
+          </a>
+          <p class="muted-subtext">We host workshops to help with networking and self-improvement.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <a href="https://www.facebook.com/pg/ANUFifty50STEM/events/" class="about-fifty50-headings">
+            <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+            <h3>Lots of events</h3>
+          </a>
+          <p class="muted-subtext">We keep you regularly updated with a list of events!</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+          <a href="http://www.anufifty50.com/" class="about-fifty50-headings">
+            <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+            <h3>We care!</h3>
+          </a>
+          <p class="muted-subtext">We care about our students' wellbeing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 text-center">
+      <a href="http://www.anufifty50.com" class="btn btn-primary btn-xl sr-button">Our website</a>
+    </div>
+  </div>
+</section>
+
+<section class="no-padding" id="resources">
+  <div class="container-fluid">
+    <div class="col-lg-8 col-lg-offset-2 text-center" style="padding-top:100px;padding-bottom:15px;">
+      <h2 class="section-heading">Resources</h2>
+      <hr>
+      <p class="text-muted">Check out some of these resources for more info on the program!</p>
+    </div>
+    <div class="row no-gutter">
+      <div class="col-lg-4 col-sm-6">
+        <a href="http://www.anu.edu.au/students" class="portfolio-box">
+          <img src={% static "images/homepage/portfolio-university.jpg" %} class="img-responsive" alt="">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded">
+                Fifty50
+              </div>
+              <div class="project-name">
+                University Life
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a href="http://www.anu.edu.au/students/health-wellbeing/mental-health" class="portfolio-box">
+          <img src={% static "images/homepage/portfolio-mentalhealth.jpg" %} class="img-responsive" alt="">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded">
+                Fifty50
+              </div>
+              <div class="project-name">
+                Mental Health
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <a href="http://www.broadagenda.com.au/home/smashing-status-quo-in-stem/" class="portfolio-box">
+          <img src={% static "images/homepage/portfolio-genderequitySTEM.jpg" %} class="img-responsive" alt="">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded">
+                Fifty50
+              </div>
+              <div class="project-name">
+                Gender Equity in STEM
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="no-padding" style="padding:50px;"></section>
+
+{% include "_sponsors.html" %}
+
+{% endblock %}
+
+
+{% block footer %}
+<section class="bg-dark" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center" style="padding-bottom:15px;">
+        <h2 class="section-heading">Contact Us</h2>
+        <hr class="primary">
+        <p>Catch us on campus or contact us through our social networking sites!</p>
+        <a href="https://www.instagram.com/anu_fifty50/" style="margin-right:15px;"><i class="fa fa-3x fa-instagram text-primary sr-contact"></i></a>
+        <a href="mailto:anu.fifty50@gmail.com" style="margin-right:15px;"><i class="fa fa-3x fa-envelope-o text-primary sr-contact"></i></a>
+        <a href="https://www.facebook.com/ANUFifty50STEM/" style="margin-right:15px;"><i class="fa fa-3x fa-facebook-official text-primary sr-contact"></i></a>
+        <a href="https://twitter.com/anu_Fifty50"><i class="fa fa-3x fa-twitter text-primary sr-contact"></i></a>   <!-- added fa-twitter icon -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
