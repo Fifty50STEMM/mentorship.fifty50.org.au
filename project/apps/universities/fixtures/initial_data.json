@@ -1,0 +1,1934 @@
+[
+{
+  "model": "universities.university",
+  "pk": 1,
+  "fields": {
+    "full_name": "The Australian National University",
+    "abbreviation": "ANU",
+    "url": "http://www.anu.edu.au/"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 1,
+  "fields": {
+    "full_name": "Bachelor"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 2,
+  "fields": {
+    "full_name": "Diploma"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 3,
+  "fields": {
+    "full_name": "Doctor"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 4,
+  "fields": {
+    "full_name": "Graduate Certificate"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 5,
+  "fields": {
+    "full_name": "Graduate Diploma"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 6,
+  "fields": {
+    "full_name": "Master"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 7,
+  "fields": {
+    "full_name": "PhB/Bachelor"
+  }
+},
+{
+  "model": "universities.cycle",
+  "pk": 8,
+  "fields": {
+    "full_name": "PhD/Doctor"
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 1,
+  "fields": {
+    "full_name": "Accounting",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 2,
+  "fields": {
+    "full_name": "Accounting",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 3,
+  "fields": {
+    "full_name": "Actuarial Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 4,
+  "fields": {
+    "full_name": "Advanced Computing (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 5,
+  "fields": {
+    "full_name": "Advanced Computing (R&D) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 6,
+  "fields": {
+    "full_name": "Applied Data Analytics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 7,
+  "fields": {
+    "full_name": "Applied Data Analytics (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 8,
+  "fields": {
+    "full_name": "Arts",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 9,
+  "fields": {
+    "full_name": "Asian Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 10,
+  "fields": {
+    "full_name": "Astronomy and Astrophysics (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 11,
+  "fields": {
+    "full_name": "Biological Sciences",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 12,
+  "fields": {
+    "full_name": "Biological Sciences (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 13,
+  "fields": {
+    "full_name": "Biotechnology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 14,
+  "fields": {
+    "full_name": "Biotechnology (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 15,
+  "fields": {
+    "full_name": "Biotechnology (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 16,
+  "fields": {
+    "full_name": "Business Administration",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 17,
+  "fields": {
+    "full_name": "Classical Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 18,
+  "fields": {
+    "full_name": "Clinical Psychology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 19,
+  "fields": {
+    "full_name": "Commerce",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 20,
+  "fields": {
+    "full_name": "Computing",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 21,
+  "fields": {
+    "full_name": "Computing (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 22,
+  "fields": {
+    "full_name": "Criminology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 23,
+  "fields": {
+    "full_name": "Design",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 24,
+  "fields": {
+    "full_name": "Developmental Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 25,
+  "fields": {
+    "full_name": "Earth Sciences (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 26,
+  "fields": {
+    "full_name": "Economics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 27,
+  "fields": {
+    "full_name": "Energy Change",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 28,
+  "fields": {
+    "full_name": "Energy Change (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 29,
+  "fields": {
+    "full_name": "Engineering (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 30,
+  "fields": {
+    "full_name": "Engineering (R&D) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 31,
+  "fields": {
+    "full_name": "Engineering in Digital Systems and Telecommunications",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 32,
+  "fields": {
+    "full_name": "Engineering in Mechatronics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 33,
+  "fields": {
+    "full_name": "Engineering in Photonics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 34,
+  "fields": {
+    "full_name": "Engineering in Renewable Energy",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 35,
+  "fields": {
+    "full_name": "Environment",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 36,
+  "fields": {
+    "full_name": "Environment (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 37,
+  "fields": {
+    "full_name": "Environment and Sustainability",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 38,
+  "fields": {
+    "full_name": "Environment and Sustainability (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 39,
+  "fields": {
+    "full_name": "Environment and Sustainability Advanced (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 40,
+  "fields": {
+    "full_name": "Environmental Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 41,
+  "fields": {
+    "full_name": "Environmental Science (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 42,
+  "fields": {
+    "full_name": "Environmental Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 43,
+  "fields": {
+    "full_name": "Finance",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 44,
+  "fields": {
+    "full_name": "Forestry",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 45,
+  "fields": {
+    "full_name": "Forestry (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 46,
+  "fields": {
+    "full_name": "Genetics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 47,
+  "fields": {
+    "full_name": "Genetics (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 48,
+  "fields": {
+    "full_name": "Health Science (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 49,
+  "fields": {
+    "full_name": "Information Technology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 50,
+  "fields": {
+    "full_name": "Information Technology (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 51,
+  "fields": {
+    "full_name": "International Business",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 52,
+  "fields": {
+    "full_name": "International Relations",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 53,
+  "fields": {
+    "full_name": "International Security Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 54,
+  "fields": {
+    "full_name": "Languages",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 55,
+  "fields": {
+    "full_name": "Laws (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 56,
+  "fields": {
+    "full_name": "Mathematical Sciences",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 57,
+  "fields": {
+    "full_name": "Mathematical Sciences (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 58,
+  "fields": {
+    "full_name": "Mathematical Sciences (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 59,
+  "fields": {
+    "full_name": "Medical Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 60,
+  "fields": {
+    "full_name": "Medical Science (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 61,
+  "fields": {
+    "full_name": "Medicine and Surgery",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 62,
+  "fields": {
+    "full_name": "Neuroscience",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 63,
+  "fields": {
+    "full_name": "Neuroscience (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 64,
+  "fields": {
+    "full_name": "Nuclear Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 65,
+  "fields": {
+    "full_name": "Pacific Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 66,
+  "fields": {
+    "full_name": "Philosophy (Honours) in Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 67,
+  "fields": {
+    "full_name": "Philosophy, Politics and Economics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 68,
+  "fields": {
+    "full_name": "Policy Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 69,
+  "fields": {
+    "full_name": "Political Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 70,
+  "fields": {
+    "full_name": "Psychology (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 71,
+  "fields": {
+    "full_name": "Public Health",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 72,
+  "fields": {
+    "full_name": "Public Health (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 73,
+  "fields": {
+    "full_name": "Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 74,
+  "fields": {
+    "full_name": "Science (Advanced) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 75,
+  "fields": {
+    "full_name": "Science (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 76,
+  "fields": {
+    "full_name": "Science (Psychology)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 77,
+  "fields": {
+    "full_name": "Science (Psychology) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 78,
+  "fields": {
+    "full_name": "Science Communication",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 79,
+  "fields": {
+    "full_name": "Science Communication Outreach",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 80,
+  "fields": {
+    "full_name": "Software Engineering (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 81,
+  "fields": {
+    "full_name": "Statistics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.degree",
+  "pk": 82,
+  "fields": {
+    "full_name": "Visual Arts",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 1,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 2,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Accounting",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 2,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 3,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Actuarial Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 3,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 4,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Advanced Computing (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 4,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 5,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Advanced Computing (R&D) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 5,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 6,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Applied Data Analytics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 6,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 7,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Applied Data Analytics (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 7,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 8,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Arts",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 8,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 9,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Asian Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 9,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 13,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Biotechnology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 10,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 15,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Biotechnology (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 11,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 16,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Business Administration",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 12,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 17,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Classical Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 13,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 19,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Commerce",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 14,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 22,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Criminology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 15,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 23,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Design",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 16,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 24,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Developmental Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 17,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 26,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Economics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 18,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 29,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Engineering (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 19,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 30,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Engineering (R&D) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 20,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 37,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Environment and Sustainability",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 21,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 38,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Environment and Sustainability (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 22,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 39,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Environment and Sustainability Advanced (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 23,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 42,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Environmental Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 24,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 43,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Finance",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 25,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 46,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Genetics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 26,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 47,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Genetics (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 27,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 48,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Health Science (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 28,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 49,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Information Technology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 29,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 50,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Information Technology (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 30,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 51,
+    "is_STEMM": true,
+    "full_name": "Bachelor of International Business",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 31,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 52,
+    "is_STEMM": true,
+    "full_name": "Bachelor of International Relations",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 32,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 53,
+    "is_STEMM": true,
+    "full_name": "Bachelor of International Security Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 33,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 54,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Languages",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 34,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 55,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Laws (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 35,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 56,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Mathematical Sciences",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 36,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 58,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Mathematical Sciences (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 37,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 59,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Medical Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 38,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 60,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Medical Science (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 39,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 65,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Pacific Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 40,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 67,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Philosophy, Politics and Economics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 41,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 68,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Policy Studies",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 42,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 69,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Political Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 43,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 70,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Psychology (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 44,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 73,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 45,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 74,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Science (Advanced) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 46,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 75,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Science (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 47,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 76,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Science (Psychology)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 48,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 77,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Science (Psychology) (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 49,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 80,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Software Engineering (Honours)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 50,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 81,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Statistics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 51,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 1,
+    "degree": 82,
+    "is_STEMM": true,
+    "full_name": "Bachelor of Visual Arts",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 52,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 2,
+    "degree": 73,
+    "is_STEMM": true,
+    "full_name": "Diploma of Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 53,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 2,
+    "degree": 20,
+    "is_STEMM": true,
+    "full_name": "Diploma of Computing",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 54,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 3,
+    "degree": 61,
+    "is_STEMM": true,
+    "full_name": "Doctor of Medicine and Surgery",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 55,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 4,
+    "degree": 73,
+    "is_STEMM": true,
+    "full_name": "Graduate Certificate of Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 56,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 5,
+    "degree": 20,
+    "is_STEMM": true,
+    "full_name": "Graduate Diploma of Computing",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 57,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 5,
+    "degree": 73,
+    "is_STEMM": true,
+    "full_name": "Graduate Diploma of Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 58,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 5,
+    "degree": 35,
+    "is_STEMM": true,
+    "full_name": "Graduate Diploma of Environment",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 59,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 6,
+    "is_STEMM": true,
+    "full_name": "Master of Applied Data Analytics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 60,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 13,
+    "is_STEMM": true,
+    "full_name": "Master of Biotechnology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 61,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 20,
+    "is_STEMM": true,
+    "full_name": "Master of Computing",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 62,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 35,
+    "is_STEMM": true,
+    "full_name": "Master of Environment",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 63,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 10,
+    "is_STEMM": true,
+    "full_name": "Master of Astronomy and Astrophysics (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 64,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 11,
+    "is_STEMM": true,
+    "full_name": "Master of Biological Sciences",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 65,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 12,
+    "is_STEMM": true,
+    "full_name": "Master of Biological Sciences (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 66,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 14,
+    "is_STEMM": true,
+    "full_name": "Master of Biotechnology (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 67,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 18,
+    "is_STEMM": true,
+    "full_name": "Master of Clinical Psychology",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 68,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 21,
+    "is_STEMM": true,
+    "full_name": "Master of Computing (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 69,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 25,
+    "is_STEMM": true,
+    "full_name": "Master of Earth Sciences (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 70,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 27,
+    "is_STEMM": true,
+    "full_name": "Master of Energy Change",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 71,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 28,
+    "is_STEMM": true,
+    "full_name": "Master of Energy Change (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 72,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 31,
+    "is_STEMM": true,
+    "full_name": "Master of Engineering in Digital Systems and Telecommunications",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 73,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 32,
+    "is_STEMM": true,
+    "full_name": "Master of Engineering in Mechatronics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 74,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 33,
+    "is_STEMM": true,
+    "full_name": "Master of Engineering in Photonics",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 75,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 34,
+    "is_STEMM": true,
+    "full_name": "Master of Engineering in Renewable Energy",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 76,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 36,
+    "is_STEMM": true,
+    "full_name": "Master of Environment (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 77,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 40,
+    "is_STEMM": true,
+    "full_name": "Master of Environmental Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 78,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 41,
+    "is_STEMM": true,
+    "full_name": "Master of Environmental Science (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 79,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 44,
+    "is_STEMM": true,
+    "full_name": "Master of Forestry",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 80,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 45,
+    "is_STEMM": true,
+    "full_name": "Master of Forestry (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 81,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 57,
+    "is_STEMM": true,
+    "full_name": "Master of Mathematical Sciences (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 82,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 62,
+    "is_STEMM": true,
+    "full_name": "Master of Neuroscience",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 83,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 63,
+    "is_STEMM": true,
+    "full_name": "Master of Neuroscience (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 84,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 64,
+    "is_STEMM": true,
+    "full_name": "Master of Nuclear Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 85,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 71,
+    "is_STEMM": true,
+    "full_name": "Master of Public Health",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 86,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 72,
+    "is_STEMM": true,
+    "full_name": "Master of Public Health (Advanced)",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 87,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 78,
+    "is_STEMM": true,
+    "full_name": "Master of Science Communication",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 88,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 6,
+    "degree": 79,
+    "is_STEMM": true,
+    "full_name": "Master of Science Communication Outreach",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.program",
+  "pk": 89,
+  "fields": {
+    "university": 1,
+    "department": null,
+    "cycle": 7,
+    "degree": 66,
+    "is_STEMM": true,
+    "full_name": "PhB/Bachelor of Philosophy (Honours) in Science",
+    "is_active": true
+  }
+},
+{
+  "model": "universities.studyyear",
+  "pk": 1,
+  "fields": {
+    "study_year": "1",
+    "reference": "First year"
+  }
+},
+{
+  "model": "universities.studyyear",
+  "pk": 2,
+  "fields": {
+    "study_year": "2",
+    "reference": "Second year"
+  }
+},
+{
+  "model": "universities.studyyear",
+  "pk": 3,
+  "fields": {
+    "study_year": "3",
+    "reference": "Third year"
+  }
+},
+{
+  "model": "universities.studyyear",
+  "pk": 4,
+  "fields": {
+    "study_year": "4",
+    "reference": "Fourth year"
+  }
+},
+{
+  "model": "universities.studyyear",
+  "pk": 5,
+  "fields": {
+    "study_year": "5+",
+    "reference": "Final year"
+  }
+},
+{
+  "model": "universities.method",
+  "pk": 1,
+  "fields": {
+    "description": "In person"
+  }
+},
+{
+  "model": "universities.method",
+  "pk": 2,
+  "fields": {
+    "description": "Online"
+  }
+}
+]
