@@ -107,7 +107,7 @@ class UserUniversity(models.Model):
     university = models.ForeignKey('universities.University')
 
     uni_id = models.CharField(
-        _('University ID'), max_length=64, unique=True)
+        _('University ID'), max_length=64, unique=True, validators=[validate_uni_id])
 
     # General information about this `User` experience at this `University`
     # -------------------------------------------------------------------------
