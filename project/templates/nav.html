@@ -46,7 +46,7 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="page-scroll" href="{% url 'users:detail' request.user.username  %}">My Profile</a></li>
+              <li><a class="page-scroll" href="{% url 'user_detail' request.user.username  %}">My Profile</a></li>
               <li><a class="page-scroll" href="settings.html">Settings</a></li>
               <li><a class="page-scroll" href="feedback/feedback_contact.html">Contact Us</a></li>
               <li><a class="page-scroll" href="{% url 'account_logout' %}">Sign Out</a></li>
