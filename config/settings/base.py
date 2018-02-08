@@ -56,7 +56,9 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'project.users.apps.UsersConfig',
-    # Your stuff: custom apps go here
+
+    'project.apps.mentorships',
+    'project.apps.universities',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
