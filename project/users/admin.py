@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin as AuthUserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from .models import User
@@ -13,7 +14,7 @@ class MyUserChangeForm(UserChangeForm):
 class MyUserCreationForm(UserCreationForm):
 
     error_message = UserCreationForm.error_messages.update({
-        'duplicate_username': 'This username has already been taken.'
+        'duplicate_username': _('This username has already been taken.')
     })
 
     class Meta(UserCreationForm.Meta):
@@ -33,7 +34,8 @@ class MyUserAdmin(AuthUserAdmin):
     form = MyUserChangeForm
     add_form = MyUserCreationForm
     fieldsets = (
-            ('User Profile', {'fields': ('name',)}),
+        ('User Profile', {'fields': ('first_name', 'last_name',
+                                     'preferred_name', 'full_name', 'gender', 'profile')}),
     ) + AuthUserAdmin.fieldsets
-    list_display = ('username', 'name', 'is_superuser')
+    list_display = ('username', 'full_name', 'is_superuser')
     search_fields = ['name']
