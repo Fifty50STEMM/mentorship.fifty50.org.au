@@ -29,9 +29,6 @@ a:hover,
 a:focus {
   color: #eb3812;
 }
-a.about-fifty50-headings, a.about-fifty50-headings:hover, a.about-fifty50-headings:focus {
-  color: white;
-}
 h1,
 h2,
 h3,
@@ -55,11 +52,17 @@ p {
 .text-faded {
   color: rgba(30, 30, 30, 0.7);
 }
-.muted-subtext {
-  color: #c1c1c1;
-}
 section {
   padding: 100px 0;
+}
+.contact-footer {
+  background-color: black;
+  padding: 10px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 aside {
   padding: 50px 0;
@@ -113,7 +116,11 @@ aside {
 }
 @media (min-width: 768px) {
   .navbar-default {
-    background-color: transparent;
+    background-color: rgba(189,24,34,1);
+    border-color: rgba(255, 255, 255, 0.0);
+  }
+  .navbar-default .homepage-navbar{
+    background-color: rgba(189,24,34,0);
     border-color: rgba(255, 255, 255, 0.0);
   }
   .navbar-default .navbar-header .navbar-brand {
@@ -163,7 +170,7 @@ header {
   -o-background-size: cover;
   background-position: center;
   /*background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/header.jpg');*/
-  background-image: url('../images/homepage/header.jpg');     /*updated header.jpg to new background image*/
+  background-image: url('../images/homepage/header.jpg');
   text-align: center;
   color: white;
 }
@@ -433,26 +440,38 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
-
-
-.alert-debug {
-  color: black;
-  background-color: white;
-  border-color: #d6e9c6;
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+   width: 100%; /* Full width */
+   padding: 12px; /* Some padding */
+   border: 1px solid #ccc; /* Gray border */
+   border-radius: 4px; /* Rounded borders */
+   box-sizing: border-box; /* Make sure that padding and width stays in place */
+   margin-top: 6px; /* Add a top margin */
+   margin-bottom: 16px; /* Bottom margin */
+   resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
-.alert-error {
-  color: #b94a48;
-  background-color: #f2dede;
-  border-color: #eed3d7;
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+   background-color: #4CAF50;
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
 }
 
-/* Display django-debug-toolbar.
-   See https://github.com/django-debug-toolbar/django-debug-toolbar/issues/742
-   and https://github.com/pydanny/cookiecutter-django/issues/317
-*/
-[hidden][style="display: block;"] {
-  display: block !important;
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+   background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+   border-radius: 5px;
+   padding: 20px;
+   margin-top: 50px;
 }
 
 
@@ -467,8 +486,20 @@ body {
     border-radius: 50%;
 }
 
-@media screen and (max-width: 768px) {
-    header {
-        margin-top: 55px;
+@media only screen and (max-width: 768px) {
+    .profile-img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1034px) {
+    body {
+        padding-top: 100px;
+    }
+}
+@media screen and (min-width: 1035px) and (max-width: 1233px) {
+    body {
+        padding-top: 50px;
     }
 }
