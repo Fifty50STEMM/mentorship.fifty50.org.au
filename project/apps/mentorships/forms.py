@@ -4,7 +4,7 @@ from crispy_forms.layout import Layout, Fieldset, Field, HTML, ButtonHolder, Sub
 
 
 from .models import UserUniversity, CHOICE_ROLES
-from project.apps.universities.models import University
+from project.apps.universities.models import University, Program, StudyYear
 from project.users.models import CHOICE_GENDER
 
 
@@ -23,16 +23,26 @@ class SignupForm(forms.ModelForm):
 
     roles = forms.MultipleChoiceField(
         choices=CHOICE_ROLES,
+        widget=forms.CheckboxSelectMultiple(),
         initial="mentee",
         label="What roles would you like to have in Fify50 this semester?",
         help_text="If you're unsure select: Mentee"
     )
 
-    preferred_name = forms.CharField(
-        help_text="The name you prefer to be refered to as, eg 'Emily', 'Alex'.")
+    preferred_name = forms.CharField(required=False)
 
     first_name = forms.CharField()
     last_name = forms.CharField()
+
+    degree_1 = forms.ModelChoiceField(
+        queryset=Program.objects.filter(is_STEMM=True, is_active=True))
+    degree_1_year = forms.ModelChoiceField(
+        queryset=StudyYear.objects.all())
+
+    degree_2 = forms.ModelChoiceField(
+        queryset=Program.objects.filter(is_active=True), required=False)
+    degree_2_year = forms.ModelChoiceField(
+        queryset=StudyYear.objects.all(), required=False)
 
     class Meta:
         model = UserUniversity
@@ -44,22 +54,28 @@ class SignupForm(forms.ModelForm):
         self.helper.layout = Layout(
             Fieldset(
                 'Signup for Fifty50',
+                Field('roles'),
+                Field('first_name',),
+                Field('last_name',),
                 Field('university', readonly=True),
                 Field('uni_id',),
                 Field('email',),
-                Field('first_name',),
-                Field('last_name',),
                 Field('preferred_name',),
                 Field('gender_mode'),
                 Field('gender', required=False),
+                Field('method_preferences'),
+                Field('mentee_number'),
+            ),
+
+            Fieldset(
+                'What are you Studying? (must be STEMM)',
+                Field('degree_1',),
+                Field('degree_1_year',),
             ),
             Fieldset(
-                'Are you a "Mentor" or a "Mentee"?',
-                HTML(
-                    """<small class="text-muted">Or both, or something else ...</small>"""),
-                Field('roles'),
-                Field('method_preferences'),
-                Field('mentee_number',),
+                '2nd Degree?',
+                Field('degree_2',),
+                Field('degree_2_year',),
             ),
             Fieldset(
                 'Let us know about your interest in making STEMM more diverse:',
@@ -78,4 +94,6 @@ class SignupForm(forms.ModelForm):
         self.fields['hear_about'].widget.attrs['rows'] = 3
         self.fields['method_preferences'].widget.attrs['style'] = "height:3.5em"
         self.fields['mentee_number'].widget.attrs['style'] = "width: 4em"
-        self.fields['gender_mode'].label = ""
+        self.fields['gender_mode'].label = "Would you prefer a mentee/mentor that is the same gender as you?"
+
+        # def clean(self):

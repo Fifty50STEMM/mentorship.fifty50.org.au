@@ -3,7 +3,7 @@ from django.views.generic import edit, detail
 from django.http import HttpResponseRedirect
 
 from .forms import SignupForm
-from .models import UserUniversity
+from .models import UserUniversity, UserRole, UniversitySession, UserDegree
 
 from project.users.models import User
 
@@ -24,11 +24,7 @@ class UserUniversityCreateView(edit.CreateView):
     def post(self, request, *args, **kwargs):
 
         form = self.form_class(request.POST)
-
         user = User.objects.filter(email=self.request.POST.get('email'))
-
-        print(" ** ", self.request.POST['uni_id'])
-
         if not user:
             user = User.objects.create_user(
                 username=self.request.POST['uni_id'],
@@ -51,6 +47,38 @@ class UserUniversityCreateView(edit.CreateView):
             # @@ TODO: validation if mentee & mentee number is 0
 
             form.instance.save()
+
+            uuser = form.instance
+
+            for role in form.cleaned_data['roles']:
+                usession = UniversitySession.objects.get(
+                    university=form.cleaned_data['university'],
+                    current=True
+                )
+                new_role = UserRole(
+                    university_session=usession,
+                    user=uuser,
+                    role=role
+                )
+                new_role.save()
+
+            new_degree1 = UserDegree(
+                user=uuser,
+                program=form.cleaned_data['degree_1'],
+                study_year=form.cleaned_data['degree_1_year'],
+                major=1,
+            )
+            new_degree1.save()
+
+            if form.cleaned_data['degree_2']:
+                new_degree2 = UserDegree(
+                    user=uuser,
+                    program=form.cleaned_data['degree_2'],
+                    study_year=form.cleaned_data['degree_2_year'],
+                    major=2,
+                )
+                new_degree2.save()
+
             return HttpResponseRedirect(
                 reverse_lazy('uuser_detail', kwargs={'slug': form.instance.uni_id}))
         else:

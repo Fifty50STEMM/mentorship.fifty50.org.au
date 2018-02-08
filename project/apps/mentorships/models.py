@@ -21,9 +21,9 @@ CHOICE_ROLES = (
 
 # @@ Could replace `na` with False
 CHOICE_RELATIONSHIP_GENDER_MODE = (
-    ('strict', "It IS important to me to be matched to the same gender."),
-    ('optional', 'If possible, match me to the same gender but not essential.'),
-    ('na', "It IS NOT important to me which gender I am matched with."),
+    ('strict', "Definitely"),
+    ('optional', 'If possible'),
+    ('na', "Unconcerned"),
 )
 
 
@@ -79,10 +79,22 @@ class UniversitySession(models.Model):
 
     session = models.ForeignKey('mentorships.Session')
 
+    current = models.BooleanField(default=True)
+
     def __str__(self):
         return "{session} ({uni})".format(
             session=self.session.abbreviation,
             uni=self.university.abbreviation)
+
+    def save(self, *args, **kwargs):
+
+        # @@TODO write test for this
+        if self.current is True:
+            for us in UniversitySession.objects.filter(
+                    university=self.university):
+                us.current = False
+            self.current = True
+        super(UniversitySession, self).save(*args, **kwargs)
 
 
 # Primary Function Models
@@ -115,14 +127,17 @@ class UserUniversity(models.Model):
     # @@ TODO probably should be method of organisers managing these questions
     # storing for for this first version is fine though.
     why_mentor = models.TextField(
-        _('Why do you want to become a mentor?'), null=True)
+        _('Why do you want to become a mentor?'), null=True, blank=True)
 
     why_diversity = models.TextField(
         _('Why do you think diversity, equity and inclusion in STEM are important?'),  # noqa
-        null=True)
+        null=True, blank=True)
 
     hear_about = models.TextField(
-        _('How did you hear about this program?'), null=True)
+        _('How did you hear about this program?'), null=True, blank=True)
+
+    intended_study = models.CharField(
+        _('Intended/Preferred Subject Area'), max_length=256, blank=True, default='')
 
     # @@ TODO probably should be something that can be set by organisers
     mentee_number = models.PositiveSmallIntegerField(
@@ -138,7 +153,9 @@ class UserUniversity(models.Model):
         help_text="Note that if you would like to be matched to the same gender, you must select an option from the following field."  # noqa
     )
 
-    method_preferences = models.ManyToManyField('universities.Method')
+    method_preferences = models.ManyToManyField(
+        'universities.Method',
+        verbose_name=_('What will be your medium of interaction in the program?'))
 
     class Meta:
         verbose_name_plural = "university users"
@@ -161,10 +178,12 @@ class UserDegree(models.Model):
 
     study_year = models.ForeignKey('universities.StudyYear')
 
+    major = models.PositiveSmallIntegerField(default=1)
+
     def __str__(self):
-        return "{uni}: {user}".format(
-            user=self.user.user.full_name,
-            uni=self.university.abbreviation)
+        return "{user} [{num}]: {year} {program}".format(
+            num=self.major, user=self.user.user.full_name,
+            program=self.program, year=self.study_year)
 
 
 @python_2_unicode_compatible
@@ -176,14 +195,16 @@ class UserRole(models.Model):
 
     university_session = models.ForeignKey('mentorships.UniversitySession')
 
-    user = models.ForeignKey('users.User')
+    user = models.ForeignKey('mentorships.UserUniversity')
 
     role = models.CharField(
         _('Role'), blank=True, max_length=16, choices=CHOICE_ROLES)
 
+    is_active = models.BooleanField(default=False)
+
     def __str__(self):
         return "{user}: {role}".format(
-            user=self.user.user.full_name, uni=self.role)
+            user=self.user.user.full_name, role=self.role)
 
 
 @python_2_unicode_compatible

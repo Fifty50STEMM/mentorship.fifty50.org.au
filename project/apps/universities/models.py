@@ -79,7 +79,8 @@ class Program(models.Model):
 
     university = models.ForeignKey('universities.University')
 
-    department = models.ForeignKey('universities.Department', null=True)
+    department = models.ForeignKey(
+        'universities.Department', models.PROTECT, null=True, blank=True)
 
     cycle = models.ForeignKey('universities.Cycle')
 
@@ -99,6 +100,9 @@ class Program(models.Model):
     def __str__(self):
         return self.full_name
 
+    class Meta:
+        ordering = ('degree',)
+
 
 @python_2_unicode_compatible
 class StudyYear(models.Model):
@@ -111,7 +115,7 @@ class StudyYear(models.Model):
         help_text="Human readable version of year of study, eg 'First Year, Final Year'")  # noqa
 
     def __str__(self):
-        return self.reference
+        return "{} ({})".format(self.reference, self.study_year)
 
 
 class Method(models.Model):
