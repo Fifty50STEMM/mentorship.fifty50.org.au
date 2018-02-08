@@ -488,6 +488,11 @@ input[type=submit]:hover {
     border-radius: 50%;
 }
 
+.invalid-feedback {
+    color: red;
+    font-size: 85%;
+}
+
 @media only screen and (max-width: 768px) {
     .profile-img {
         display: block;

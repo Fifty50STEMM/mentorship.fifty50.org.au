@@ -1,17 +1,13 @@
 from django.conf.urls import url
 
 from allauth.account import views as allauth_views
-from project.apps.mentorships.views import UserUniversityCreateView
 from . import views as user_views
 
 
 urlpatterns = [
 
-    url(r"^signup/$", UserUniversityCreateView.as_view(), name='signup'),
-
     # AllAuth views
 
-    # url(r"^signup/$", allauth_views.signup, name="account_signup"),
     url(r"^login/$", allauth_views.login, name="account_login"),
     url(r"^logout/$", allauth_views.logout, name="account_logout"),
 
