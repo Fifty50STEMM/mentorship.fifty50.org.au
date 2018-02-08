@@ -2,9 +2,12 @@
 well as User roles. Fifty50 Organisers will be able to add and change what users
 are able in input."""
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-from django.core.validators import MinValueValidator, MaxValueValidator
+
+from .validators import validate_uni_id
 
 
 NUM_MAX_MENTEES = 3
@@ -18,9 +21,9 @@ CHOICE_ROLES = (
 
 # @@ Could replace `na` with False
 CHOICE_RELATIONSHIP_GENDER_MODE = (
-    ('strict', 'Important to me*'),
-    ('optional', 'If possible'),
-    ('na', 'Not important to me'),
+    ('strict', "It IS important to me to be matched to the same gender."),
+    ('optional', 'If possible, match me to the same gender but not essential.'),
+    ('na', "It IS NOT important to me which gender I am matched with."),
 )
 
 
@@ -103,39 +106,45 @@ class UserUniversity(models.Model):
 
     university = models.ForeignKey('universities.University')
 
-    uni_id = models.CharField(max_length=64, unique=True)
+    uni_id = models.CharField(
+        _('University ID'), max_length=64, unique=True)
 
     # General information about this `User` experience at this `University`
     # -------------------------------------------------------------------------
 
     # @@ TODO probably should be method of organisers managing these questions
     # storing for for this first version is fine though.
-    why_mentor = models.CharField(
-        _('Why do you want to become a mentor?'),
-        max_length=150, null=True,
-    )
+    why_mentor = models.TextField(
+        _('Why do you want to become a mentor?'), null=True)
 
-    why_diversity = models.CharField(
+    why_diversity = models.TextField(
         _('Why do you think diversity, equity and inclusion in STEM are important?'),  # noqa
-        max_length=150, null=True)
+        null=True)
 
-    hear_about = models.CharField(
-        _('How did you hear about this program?'),
-        max_length=150, null=True)
+    hear_about = models.TextField(
+        _('How did you hear about this program?'), null=True)
 
     # @@ TODO probably should be something that can be set by organisers
     mentee_number = models.PositiveSmallIntegerField(
         null=True, default=0, validators=[MinValueValidator(0),
-                                          MaxValueValidator(NUM_MAX_MENTEES)])
+                                          MaxValueValidator(NUM_MAX_MENTEES)],
+        help_text="Number of mentees you'd be willing to support (max is {}).".format(
+            NUM_MAX_MENTEES)
+    )
 
     gender_mode = models.CharField(
-        _('Gender Mode'), blank=True, max_length=1,
-        choices=CHOICE_RELATIONSHIP_GENDER_MODE)
+        _('Gender Mode'), blank=True, max_length=16,
+        choices=CHOICE_RELATIONSHIP_GENDER_MODE,
+        help_text="Note that if you would like to be matched to the same gender, you must select an option from the following field."  # noqa
+    )
 
     method_preferences = models.ManyToManyField('universities.Method')
 
     class Meta:
         verbose_name_plural = "university users"
+
+    def get_absolute_url(self):
+        return reverse('uuser_detail', kwargs={'slug': self.uni_id})
 
     def __str__(self):
         return "{uni}: {user}".format(
@@ -156,6 +165,25 @@ class UserDegree(models.Model):
         return "{uni}: {user}".format(
             user=self.user.user.full_name,
             uni=self.university.abbreviation)
+
+
+@python_2_unicode_compatible
+class UserRole(models.Model):
+    """ Allow `User` to have a variety of `Role`s per `UniversitySession`.
+
+    All `Role` relationships will be recreated each `UniversitySession`.
+    """
+
+    university_session = models.ForeignKey('mentorships.UniversitySession')
+
+    user = models.ForeignKey('users.User')
+
+    role = models.CharField(
+        _('Role'), blank=True, max_length=16, choices=CHOICE_ROLES)
+
+    def __str__(self):
+        return "{user}: {role}".format(
+            user=self.user.user.full_name, uni=self.role)
 
 
 @python_2_unicode_compatible
