@@ -15,6 +15,9 @@ urlpatterns = [
     # User management
     url(r'^profile/', include('project.users.urls')),
 
+    # Local User management
+    url(r'^mentorship/', include('project.apps.mentorships.urls')),
+
 
 
 
