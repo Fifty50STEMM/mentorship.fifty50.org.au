@@ -8,14 +8,13 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{ object.user.full_name }}</h2>
-
-
-      <p>{{ object.user }}<br>
+      <legend>{{ object.user }}</legend>
         <b>{{ object.university.full_name }} ({{ object.university.abbreviation }})</b></p>
 
       <p><b>Studying</b>: {{ object.userdegree_set.first.program }} ({{ object.userdegree_set.first.study_year.reference }})
-      <br><b>Interests:</b> {{ object.user.interests }}</p>
+        <br><b>Interests:</b> {{ object.user.interests }}
+        <br><b>Delivery:</b> {{ object.method_preferences.all|join:", " }}
+      </p>
 
       <p><b>{{ object.userrole_set.all|pluralize:"Role,Roles" }}</b></p>
 
