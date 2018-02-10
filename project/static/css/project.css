@@ -467,7 +467,7 @@ input[type=submit]:hover {
    background-color: #45a049;
 }
 
-.alert {margin-top: 100px}
+.alert {margin-top: 20px}
 
 /* Add a background color and some padding around the form */
 .container {

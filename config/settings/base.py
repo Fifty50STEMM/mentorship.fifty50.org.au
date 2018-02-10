@@ -59,6 +59,8 @@ LOCAL_APPS = [
 
     'project.apps.mentorships',
     'project.apps.universities',
+
+    'project.apps.feedbacks',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

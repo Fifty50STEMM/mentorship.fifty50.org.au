@@ -11,5 +11,8 @@ class Feedback(models.Model):
 
     message = models.TextField()
 
+    class Meta:
+        verbose_name_plural = 'feedback'
+
     def __str__(self):
-        return "{}: {}".format(self.date_create, self.user)
+        return "{}: {} ({})".format(self.date_create, self.name, self.email)

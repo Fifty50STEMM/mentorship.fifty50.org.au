@@ -1,7 +1,9 @@
-from django import forms
-from django.views.generic import edit
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Fieldset, Layout, Submit
+from django import forms
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from django.views.generic import edit
 
 from .models import Feedback
 
@@ -26,7 +28,9 @@ class FeedbackForm(forms.ModelForm):
         super(FeedbackForm, self).__init__(*args, **kwargs)
 
 
-class FeedbackCreateView(edit.CreateView):
+class FeedbackCreateView(SuccessMessageMixin, edit.CreateView):
 
     model = Feedback
     form_class = FeedbackForm
+    success_url = reverse_lazy('feedback_success')
+    success_message = "Thank you! Your message was sent."
