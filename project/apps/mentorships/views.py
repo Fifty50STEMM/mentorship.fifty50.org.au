@@ -1,6 +1,7 @@
+from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import edit, detail
-from django.http import HttpResponseRedirect
 
 from .forms import SignupForm
 from .models import UserUniversity, UserRole, UniversitySession, UserDegree
@@ -15,11 +16,12 @@ class UserUniversityDetailView(detail.DetailView):
     template_name = 'mentorships/uuser_detail.html'
 
 
-class UserUniversityCreateView(edit.CreateView):
+class UserUniversityCreateView(SuccessMessageMixin, edit.CreateView):
 
     model = UserUniversity
     form_class = SignupForm
     template_name = 'mentorships/uuser_create.html'
+    success_message = "Thank you! You have signed up as: %(first_name) %(last_name) [%(uni_id)]"
 
     def post(self, request, *args, **kwargs):
 
