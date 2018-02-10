@@ -263,6 +263,30 @@ class Relationship(models.Model):
         unique_together = ('university_session', 'mentee')
 
     def __str__(self):
-        return "{mentor} => {mentee}".format(
-            session=self.session.abbreviation,
-            uni=self.university.abbreviation)
+        return "{mentor} => {mentee}".format(mentor=self.mentor, mentee=self.mentee)
+
+    def save(self, *args, **kwargs):
+        """ Check to ensure `UserRole`s are available before object save. """
+        # @@ TODO write tests for this
+        if not self.id:
+            new_object = True
+            role_mentor = UserRole.objects.filter(
+                user=self.mentor, role='mentor', relationship__isnull=True)
+            role_mentee = UserRole.objects.filter(
+                user=self.mentee, role='mentee', relationship__isnull=True)
+            if not role_mentee and role_mentor:
+                raise ValidationError(
+                    _("Role for either mentor or mentee does not exist: {} => {}".format(self.mentor, self.mentee)))
+
+        super(Relationship, self).save(*args, **kwargs)
+        """Associate new `Relationship` with `UserRole`s.
+        ForeignKey on `UserRole` can only be created after `super().save()`
+        has been run for this object.
+        """
+        if new_object:
+            role_mentor[0].relationship = self
+            role_mentor[0].is_active = True
+            role_mentor[0].save()
+            role_mentee[0].relationship = self
+            role_mentee[0].is_active = True
+            role_mentee[0].save()
