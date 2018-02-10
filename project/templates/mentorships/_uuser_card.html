@@ -1,5 +1,8 @@
 <b>{{ person.user.user.preferred_name }}</b>
-[{{ person.user.user.gender }}] {% if person.user.mentee_number %}(*{{ person.user.mentee_number }}* possible mentees){% endif %}<br>
+{% if person.user.gender_mode == '0' %}*MUST* be: {% endif %}
+{% if person.user.gender_mode == '1' %}prefer: {% endif %}
+[{{ person.user.user.gender|upper }}]
+{% if person.user.mentee_number %}(*{{ person.user.mentee_number }}* possible mentees){% endif %}<br>
 <small>
   {{ person.user.degree_major.program }}
   {% if person.user.degree_minor.program%}

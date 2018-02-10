@@ -22,9 +22,9 @@ CHOICE_ROLES = (
 
 # @@ Could replace `na` with False
 CHOICE_RELATIONSHIP_GENDER_MODE = (
-    ('strict', "Definitely"),
-    ('optional', 'If possible'),
-    ('na', "Unconcerned"),
+    ('0', "Definitely"),
+    ('1', 'If possible'),
+    ('9', "Unconcerned"),
 )
 
 
@@ -231,7 +231,8 @@ class UserRole(models.Model):
 
     class Meta:
         unique_together = ('role', 'relationship')
-        ordering = ('university_session', 'is_active', 'user__user__gender')
+        ordering = ('university_session', 'is_active',
+                    'user__user__gender', 'user__gender_mode')
 
     def __str__(self):
         active = 'inactive'
