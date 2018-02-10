@@ -1,0 +1,7 @@
+<b>{{ person.user.user.preferred_name }}</b>
+[{{ person.user.user.gender }}] {% if person.user.mentee_number %}(*{{ person.user.mentee_number }}* possible mentees){% endif %}<br>
+<small>
+  {{ person.user.degree_major.program }}
+  {% if person.user.degree_minor.program%}
+  <br>{{ person.user.degree_minor.program }}{% endif %}</small>
+<br><small><i>{{ person.user.user.interests }}</i></small>

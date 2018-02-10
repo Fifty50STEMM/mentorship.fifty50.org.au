@@ -1,7 +1,8 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.views.generic import edit, detail
+from django.views import generic
+
 
 from .forms import SignupForm
 from .models import UserUniversity, UserRole, UniversitySession, UserDegree
@@ -9,14 +10,14 @@ from .models import UserUniversity, UserRole, UniversitySession, UserDegree
 from project.users.models import User
 
 
-class UserUniversityDetailView(detail.DetailView):
+class UserUniversityDetailView(generic.detail.DetailView):
 
     model = UserUniversity
     slug_field = 'uni_id'
     template_name = 'mentorships/uuser_detail.html'
 
 
-class UserUniversityCreateView(SuccessMessageMixin, edit.CreateView):
+class UserUniversityCreateView(SuccessMessageMixin, generic.edit.CreateView):
 
     model = UserUniversity
     form_class = SignupForm
@@ -95,3 +96,20 @@ class UserUniversityCreateView(SuccessMessageMixin, edit.CreateView):
                 reverse_lazy('uuser_detail', kwargs={'slug': form.instance.uni_id}))
         else:
             return super().post(request, *args, **kwargs)
+
+
+class UserRoleMatchView(generic.TemplateView):
+
+    template_name = 'mentorships/uuser_match.html'
+
+    # @@ TODO differentiate sessions using URL params/current session
+
+    def get_context_data(self, **kwargs):
+        context = super(UserRoleMatchView, self).get_context_data(**kwargs)
+        context['mentors'] = UserRole.objects.filter(
+            role='mentor', relationship__isnull=True)
+        context['mentees'] = UserRole.objects.filter(
+            role='mentee', relationship__isnull=True)
+        context['matched'] = UserRole.objects.filter(
+            relationship__isnull=False)
+        return context
