@@ -45,6 +45,7 @@
             <ul class="dropdown-menu">
               <li><a class="page-scroll" href="{% url 'user_detail' request.user.username  %}">My Profile</a></li>
               <li><a class="page-scroll" href="{% url 'feedback_form' %}">Contact Us</a></li>
+              {% if request.user.is_superuser %}<li><a class="page-scroll" href="/admin/">Admin</a></li>{% endif %}
               <li><a class="page-scroll" href="{% url 'account_logout' %}">Sign Out</a></li>
             </ul>
           </li>
