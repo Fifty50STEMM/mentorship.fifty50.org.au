@@ -40,6 +40,7 @@ class UserUniversityCreateView(edit.CreateView):
             user.first_name = form.cleaned_data['first_name']
             user.last_name = form.cleaned_data['last_name']
             user.gender = form.cleaned_data['gender']
+            user.interests = form.cleaned_data['interests']
             user.save()
             form.instance.user = user
 
@@ -55,12 +56,18 @@ class UserUniversityCreateView(edit.CreateView):
                     university=form.cleaned_data['university'],
                     current=True
                 )
-                new_role = UserRole(
-                    university_session=usession,
-                    user=uuser,
-                    role=role
-                )
-                new_role.save()
+                n = 1
+                if role == 'mentor':
+                    n = form.cleaned_data['mentee_number']
+                    print(" ** ", form.cleaned_data['mentee_number'])
+
+                for x in range(0, n):
+                    new_role = UserRole(
+                        university_session=usession,
+                        user=uuser,
+                        role=role
+                    )
+                    new_role.save()
 
             new_degree1 = UserDegree(
                 user=uuser,

@@ -3,13 +3,14 @@ well as User roles. Fifty50 Organisers will be able to add and change what users
 are able in input."""
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from .validators import validate_uni_id
 
-
+# @@ TODO this is something that should probably be set at a `University` level.
 NUM_MAX_MENTEES = 3
 
 CHOICE_ROLES = (
@@ -46,6 +47,9 @@ class Session(models.Model):
     abbreviation = models.CharField(
         _('Abbreviation'), unique=True, blank=True, max_length=32)
 
+    universities = models.ManyToManyField(
+        'universities.University', through='mentorships.UniversitySession')
+
     def __str__(self):
         return self.abbreviation
 
@@ -70,6 +74,9 @@ class SessionWeek(models.Model):
     information = models.TextField(_('Information'), blank=True)
 
     # @@TODO perhaps file upload here.
+
+    def __str__(self):
+        return self.full_name
 
 
 @python_2_unicode_compatible
@@ -149,9 +156,7 @@ class UserUniversity(models.Model):
 
     gender_mode = models.CharField(
         _('Gender Mode'), blank=True, max_length=16,
-        choices=CHOICE_RELATIONSHIP_GENDER_MODE,
-        help_text="Note that if you would like to be matched to the same gender, you must select an option from the following field."  # noqa
-    )
+        choices=CHOICE_RELATIONSHIP_GENDER_MODE)
 
     method_preferences = models.ManyToManyField(
         'universities.Method',
@@ -181,8 +186,11 @@ class UserDegree(models.Model):
     major = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
+        num = 'major'
+        if self.major == 0:
+            num = 'minor'
         return "{user} [{num}]: {year} {program}".format(
-            num=self.major, user=self.user.user.full_name,
+            num=num, user=self.user.user.full_name,
             program=self.program, year=self.study_year)
 
 
@@ -202,9 +210,21 @@ class UserRole(models.Model):
 
     is_active = models.BooleanField(default=False)
 
+    relationship = models.ForeignKey(
+        'mentorships.Relationship', null=True, blank=True)
+
+    notes = models.CharField(
+        _('Notes'), max_length=1024, help_text="Further information if necessary.")
+
+    class Meta:
+        unique_together = ('role', 'relationship')
+
     def __str__(self):
-        return "{user}: {role}".format(
-            user=self.user.user.full_name, role=self.role)
+        active = 'inactive'
+        if self.is_active:
+            active = 'active'
+        return "{user}: {role} [{active}]".format(
+            user=self.user.user.full_name, role=self.role, active=active)
 
 
 @python_2_unicode_compatible
@@ -216,9 +236,11 @@ class Relationship(models.Model):
 
     university_session = models.ForeignKey('mentorships.UniversitySession')
 
-    mentor = models.ForeignKey('users.User', related_name='mentor')
+    mentor = models.ForeignKey(
+        'mentorships.UserUniversity', related_name='mentor')
 
-    mentee = models.ForeignKey('users.User', related_name='mentee')
+    mentee = models.ForeignKey(
+        'mentorships.UserUniversity', related_name='mentee')
 
     method = models.ForeignKey('universities.Method')
 

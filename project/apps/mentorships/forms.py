@@ -29,13 +29,17 @@ class SignupForm(forms.ModelForm):
         help_text="If you're unsure select: Mentee"
     )
 
-    preferred_name = forms.CharField(required=False)
-
     first_name = forms.CharField()
     last_name = forms.CharField()
+    preferred_name = forms.CharField(required=False)
+
+    interests = forms.CharField(
+        required=False,
+        help_text="Briefly list any interests that might help in setting you up in a good mentor-mentee relationship (limit 500 chars).")  # noqa
 
     degree_1 = forms.ModelChoiceField(
-        queryset=Program.objects.filter(is_STEMM=True, is_active=True))
+        queryset=Program.objects.filter(is_STEMM=True, is_active=True),
+        help_text="Must be STEMM course.")
     degree_1_year = forms.ModelChoiceField(
         queryset=StudyYear.objects.all())
 
@@ -55,20 +59,21 @@ class SignupForm(forms.ModelForm):
             Fieldset(
                 'Signup for Fifty50',
                 Field('roles'),
+                Field('mentee_number'),
                 Field('first_name',),
                 Field('last_name',),
                 Field('university', readonly=True),
                 Field('uni_id',),
                 Field('email',),
                 Field('preferred_name',),
+                Field('interests',),
+                Field('method_preferences'),
                 Field('gender_mode'),
                 Field('gender', required=False),
-                Field('method_preferences'),
-                Field('mentee_number'),
             ),
 
             Fieldset(
-                'What are you Studying? (must be STEMM)',
+                'What are you Studying?',
                 Field('degree_1',),
                 Field('degree_1_year',),
             ),
@@ -92,8 +97,10 @@ class SignupForm(forms.ModelForm):
         self.fields['why_mentor'].widget.attrs['rows'] = 3
         self.fields['why_diversity'].widget.attrs['rows'] = 3
         self.fields['hear_about'].widget.attrs['rows'] = 3
+        self.fields['why_mentor'].required = False
+        self.fields['why_diversity'].required = False
+        self.fields['hear_about'].required = False
+
         self.fields['method_preferences'].widget.attrs['style'] = "height:3.5em"
         self.fields['mentee_number'].widget.attrs['style'] = "width: 4em"
         self.fields['gender_mode'].label = "Would you prefer a mentee/mentor that is the same gender as you?"
-
-        # def clean(self):

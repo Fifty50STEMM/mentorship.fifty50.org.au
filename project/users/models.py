@@ -41,6 +41,9 @@ class User(AbstractUser):
         _('Gender'), blank=True, default='', max_length=1,
         choices=CHOICE_GENDER)
 
+    interests = models.CharField(
+        _('Interests, hobbies or sports'), blank=True, max_length=512)
+
     profile = models.TextField(_('About Me'), blank=True)
 
     def __str__(self):
