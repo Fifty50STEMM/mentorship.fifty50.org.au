@@ -18,6 +18,8 @@ urlpatterns = [
     # Local User management
     url(r'^mentorship/', include('project.apps.mentorships.urls')),
 
+    # Feedback Form
+    url(r'^feedback/', include('project.apps.feedbacks.urls')),
 
 
 
