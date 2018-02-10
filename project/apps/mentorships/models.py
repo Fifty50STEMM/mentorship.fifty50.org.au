@@ -165,6 +165,15 @@ class UserUniversity(models.Model):
     class Meta:
         verbose_name_plural = "university users"
 
+    @property
+    def degree_major(self):
+        return self.userdegree_set.filter(major=1)[0]
+
+    @property
+    def degree_minor(self):
+        if self.userdegree_set.filter(major=0):
+            return self.userdegree_set.get(major=0)
+
     def get_absolute_url(self):
         return reverse('uuser_detail', kwargs={'slug': self.uni_id})
 
@@ -184,6 +193,9 @@ class UserDegree(models.Model):
     study_year = models.ForeignKey('universities.StudyYear')
 
     major = models.PositiveSmallIntegerField(default=1)
+
+    class Meta:
+        ordering = ('-major',)
 
     def __str__(self):
         num = 'major'
@@ -219,6 +231,7 @@ class UserRole(models.Model):
 
     class Meta:
         unique_together = ('role', 'relationship')
+        ordering = ('university_session', 'is_active', 'user__user__gender')
 
     def __str__(self):
         active = 'inactive'

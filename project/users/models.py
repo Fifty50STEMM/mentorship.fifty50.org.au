@@ -57,4 +57,6 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         self.full_name = "{} {}".format(self.first_name, self.last_name)
+        if not self.preferred_name:
+            self.preferred_name = self.first_name
         super(User, self).save()
