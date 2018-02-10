@@ -9,26 +9,25 @@
     <div class="col-sm-12">
 
       <h2>{{ object.user.full_name }}</h2>
-      {% if object.name %}
-        <p>{{ object.name }}</p>
-      {% endif %}
+
+
+      <p>{{ object.user }}<br>
+        <b>{{ object.university.full_name }} ({{ object.university.abbreviation }})</b></p>
+
+      <p><b>Studying</b>: {{ object.userdegree_set.first.program }} ({{ object.userdegree_set.first.study_year.reference }})
+      <br><b>Interests:</b> {{ object.user.interests }}</p>
+
+      <p><b>{{ object.userrole_set.all|pluralize:"Role,Roles" }}</b></p>
+
+      {% for role in object.userrole_set.all %}
+      {% ifchanged role.univeristy_session %}
+      <b>{{ role.university_session.session.reference }}</b>
+      {% endifchanged %}
+      <p>{{ role.role|title }}, matched: {% if role.is_active %}Yes{% else %}No{% endif %}</p>
+      {% endfor %}
+
     </div>
   </div>
 
-{% if object.user == request.user %}
-<!-- Action buttons -->
-<div class="row">
-
-  <div class="col-sm-12">
-    <a class="btn btn-primary" href="{% url 'user_update' %}" role="button">My Info</a>
-    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
-  </div>
-
-</div>
-<!-- End Action buttons -->
-{% endif %}
-
-
 </div>
 {% endblock content %}
-
