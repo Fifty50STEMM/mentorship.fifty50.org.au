@@ -81,6 +81,7 @@ class SignupForm(forms.ModelForm):
                 '2nd Degree?',
                 Field('degree_2',),
                 Field('degree_2_year',),
+                Field('intended_study',),
             ),
             Fieldset(
                 'Let us know about your interest in making STEMM more diverse:',
