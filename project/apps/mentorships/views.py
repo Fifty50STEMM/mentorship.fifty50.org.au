@@ -53,6 +53,9 @@ class UserUniversityCreateView(SuccessMessageMixin, edit.CreateView):
 
             uuser = form.instance
 
+            uuser.method_preferences.set(
+                form.cleaned_data['method_preferences'])
+
             for role in form.cleaned_data['roles']:
                 usession = UniversitySession.objects.get(
                     university=form.cleaned_data['university'],

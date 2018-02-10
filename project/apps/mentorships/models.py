@@ -214,7 +214,8 @@ class UserRole(models.Model):
         'mentorships.Relationship', null=True, blank=True)
 
     notes = models.CharField(
-        _('Notes'), max_length=1024, help_text="Further information if necessary.")
+        _('Notes'), max_length=1024, blank=True, default='',
+        help_text="Further information if necessary.")
 
     class Meta:
         unique_together = ('role', 'relationship')
@@ -223,8 +224,9 @@ class UserRole(models.Model):
         active = 'inactive'
         if self.is_active:
             active = 'active'
-        return "{user}: {role} [{active}]".format(
-            user=self.user.user.full_name, role=self.role, active=active)
+        return "{user}: {role} {session} [{active}]".format(
+            user=self.user.user.full_name, role=self.role, active=active,
+            session=self.university_session)
 
 
 @python_2_unicode_compatible
