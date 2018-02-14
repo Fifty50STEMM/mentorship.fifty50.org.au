@@ -21,6 +21,9 @@ urlpatterns = [
     # Feedback Form
     url(r'^feedback/', include('project.apps.feedbacks.urls')),
 
+    # Blog
+    url(r'^posts/', include('project.apps.blog.urls')),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
