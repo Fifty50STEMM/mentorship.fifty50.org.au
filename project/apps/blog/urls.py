@@ -6,6 +6,6 @@ urlpatterns = [
     url(r'^$',
         views.PostListView.as_view(), name='post_list'),
 
-    url(r'^post/(?P<slug>[-\w]+)/$',
+    url(r'^(?P<slug>[-\w]+)/$',
         views.PostDetailView.as_view(), name='post_detail'),
 ]
