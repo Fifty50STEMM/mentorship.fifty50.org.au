@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+
+  <h1 class="page-header">Latest News</h1>
+
+  <div class="row">
+
+  {# LHS col #}
+  <div class="col-md-8">
+
+    <div class="container">
+    {% for post in post_list %}
+    <div class="row">
+      <div class="col-md-2">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-responsive" >
+      </div>
+
+      <div class="col-md-6">
+        <h2><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
+        <p>by {{ post.author }}<br>
+        <span class="glyphicon glyphicon-time"></span> {{ post.publish_date }}</p>
+        <hr>
+      </div>
+    </div>
+    {% endfor %}
+
+      <!-- Pager -->
+      <ul class="pager" style="padding-bottom:50px;">
+        <li class="previous">
+          <a href="#">&larr; Older</a>
+        </li>
+        <li class="next">
+          <a href="#">Newer &rarr;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  {# RHS col #}
+  <div class="col-md-4">
+    <a class="twitter-timeline" href="https://twitter.com/anu_Fifty50" data-height="800">Latest tweets from ANU Fifty50!</a>
+  </div>
+
+</div> {# end row #}
+</div> {# end container #}
+
+
+</div>
+<!-- /.row -->
+<!-- /.container -->
+{% endblock %}
+
+{% block javascript %}
+{{ block.super }}
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock footer %}
