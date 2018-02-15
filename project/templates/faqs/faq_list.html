@@ -13,7 +13,7 @@
 
       {% for faq in object_list %}
       <li>
-	<a class="cd-faq-trigger" href="{{ faq.slug }}">{{ faq.question|safe }}</a>
+	<a class="cd-faq-trigger" href="{{ faq.slug }}" id="{{ faq.slug }}">{{ faq.question|safe }}</a>
 
 	<div class="cd-faq-content">
           {{ faq.answer|safe }}
