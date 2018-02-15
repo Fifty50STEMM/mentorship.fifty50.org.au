@@ -62,6 +62,7 @@ LOCAL_APPS = [
 
     'project.apps.feedbacks',
     'project.apps.blog',
+    'project.apps.faqs',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

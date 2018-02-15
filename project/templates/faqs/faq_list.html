@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+
+  <h1 class="page-header">Frequently Asked Questions</h1>
+
+  <div class="row">
+
+    <ul id="basics" class="cd-faq-group">
+
+      {% for faq in object_list %}
+      <li>
+	<a class="cd-faq-trigger" href="{{ faq.slug }}">{{ faq.question|safe }}</a>
+
+	<div class="cd-faq-content">
+          {{ faq.answer|safe }}
+	</div> <!-- cd-faq-content -->
+      </li>
+      {% endfor %}
+
+    </ul>
+  </div> {# end row #}
+</div> {# end container #}
+
+
+</div>
+<!-- /.row -->
+<!-- /.container -->
+{% endblock %}
+
+{% block styles %}
+{{ block.super }}
+<link href="{% static 'css/project-faq.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block javascript %}
+{{ block.super }}
+<script src="{% static 'js/project-faq.js' %}"></script>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock footer %}

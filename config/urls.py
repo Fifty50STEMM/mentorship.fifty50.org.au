@@ -24,6 +24,7 @@ urlpatterns = [
     # Blog
     url(r'^posts/', include('project.apps.blog.urls')),
 
+    url(r'^faq/', FaqView.as_view(), name='faq'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
