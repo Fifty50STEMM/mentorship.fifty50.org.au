@@ -15,7 +15,7 @@
     <hr>
     <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-responsive">
     <hr>
-    <p>{{ post.text|linebreaksbr }}</p>
+    <p>{{ post.text|safe|linebreaksbr }}</p>
 
   </div>
 </div>

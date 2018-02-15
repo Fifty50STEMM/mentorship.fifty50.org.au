@@ -10,7 +10,7 @@
   <div class="row">
 
   {# LHS col #}
-  <div class="col-md-8">
+  <div class="col-md-7">
 
     <div class="container">
     {% for post in post_list %}
@@ -19,7 +19,7 @@
         <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-responsive" >
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-5">
         <h2><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
         <p>by {{ post.author }}<br>
         <span class="glyphicon glyphicon-time"></span> {{ post.publish_date }}</p>
