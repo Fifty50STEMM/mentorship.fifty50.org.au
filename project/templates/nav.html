@@ -13,6 +13,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a class="page-scroll" href="{% url 'post_list' %}">News & Events</a></li>
+        <li><a class="page-scroll" href="{% url 'post_list' %}">FAQ</a></li>
         {% if request.user.is_authenticated %}
           {% if request.user.profile.role == 'Mentor' %}            
           <li class="dropdown">
