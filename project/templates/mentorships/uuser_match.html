@@ -3,12 +3,23 @@
 
 {% block content %}
 
-{{ request }} {{ done }}
+
+
+<div class="col-12 alert alert-success matched">
+  <h4>Already Matched</h4>
+  {% for relation in matched %}
+  <div><a target="_blank" href="{% url 'admin:mentorships_relationship_change' relation.id %}">{{ relation }}</a></div>
+{% endfor %}
+</div>
+
+
+<div class="clearfix">&nbsp;</div>
 
 <form method="post" action=".">{% csrf_token %}
 
-<button type="submit" class="btn btn-success">Post Matches >> </button>
-  
+  <center><button type="submit" class="btn btn-success"> &nbsp; Save &nbsp; </button></center>
+  <div>Matches not saved until "save" button is pressed.</div>
+
 <div class="container">
 <div class="row">
   <div class="col-6 match bucket">
@@ -35,7 +46,7 @@
       </div>
     </div>
     {% endfor %}
-  </div> 
+  </div>
 </div>
 </div>
 
@@ -44,7 +55,7 @@
   {{mentors}}
 
 
-  
+
 {% endblock %}
 
 
@@ -60,7 +71,7 @@
   height: 95vh;
   overflow: scroll;
   }
-  
+
   .match {
   float: left;
   min-height: 44px;
@@ -95,9 +106,18 @@ input {
     width: 20px;
   }
 
-  .alert {
+.alert {
   padding: 0 2px;
-  }
+}
+
+div.matched  {
+  padding: 5px 10px;
+}
+
+.matched > a:visited,
+.matched > a {
+   color: #337ab7;
+}
 </style>
 
 {% endblock %}

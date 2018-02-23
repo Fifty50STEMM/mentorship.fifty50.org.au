@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views import generic
@@ -67,7 +69,8 @@ class UserUniversityCreateView(SuccessMessageMixin, generic.edit.CreateView):
                 if role == 'mentor':
                     n = form.cleaned_data['mentee_number']
 
-                for x in range(0, n):
+                # create multiple mentor "roles" if mentee_number > 1
+                for i in range(0, n):
                     new_role = UserRole(
                         university_session=usession,
                         user=uuser,
@@ -111,7 +114,6 @@ class UserRoleMatchView(SuccessMessageMixin, generic.TemplateView):
         for key in request.POST:
             if request.POST[key]:
                 if key[:6] == "mentor":
-                    # print(key.split("-"), request.POST[key])
                     mentor = UserRole.objects.get(pk=key.split("-")[1])
                     mentee = UserRole.objects.get(pk=request.POST[key])
                     new_relationship = Relationship(
@@ -120,9 +122,10 @@ class UserRoleMatchView(SuccessMessageMixin, generic.TemplateView):
                         university_session=UniversitySession.objects.get(
                             current=True),
                         method=Method.objects.first())
-                    new_relationship.save()
-                    # print(key.split("-"), request.POST[key])
-                    print(mentor, mentee)
+                    try:
+                        new_relationship.save()
+                    except IntegrityError:
+                        messages.warning(request, 'User previously matched.')
         return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
@@ -131,7 +134,5 @@ class UserRoleMatchView(SuccessMessageMixin, generic.TemplateView):
             role='mentor', relationship__isnull=True)
         context['mentees'] = UserRole.objects.filter(
             role='mentee', relationship__isnull=True)
-        context['matched'] = UserRole.objects.filter(
-            relationship__isnull=False)
-        context['done'] = Relationship.objects.all()
+        context['matched'] = Relationship.objects.filter(university_session__current=True)
         return context
