@@ -1,10 +1,11 @@
-<b>{{ person.user.user.preferred_name }}</b>
-{% if person.user.gender_mode == '0' %}*MUST* be: {% endif %}
-{% if person.user.gender_mode == '1' %}prefer: {% endif %}
-[{{ person.user.user.gender|upper }}]
-{% if person.user.mentee_number %}(*{{ person.user.mentee_number }}* possible mentees){% endif %}<br>
+<b>({{ role.user.uni_id }})  {{ role.user.user.preferred_name }}</b>
+{% if role.user.gender_mode == '0' %}<small class="alert alert-danger">MUST be: {% endif %}
+{% if role.user.gender_mode == '1' %}<small class="alert alert-info"> prefer: {% endif %}
+  [{{ role.user.user.gender|upper }}]</small>
 <small>
-  {{ person.user.degree_major.program }}
-  {% if person.user.degree_minor.program%}
-  <br>{{ person.user.degree_minor.program }}{% endif %}</small>
-<br><small><i>{{ person.user.user.interests }}</i></small>
+{% if role.user.mentee_number %}
+  (<b>{{ role.user.mentee_number }}</b> possible mentees){% endif %}<br>
+  {{ role.user.degree_major }} ({{ role.user.get_degree_major.study_year }})
+  {% if role.user.degree_minor.program %}
+  <br>{{ role.user.degree_minor.program }}{% endif %}</small>
+<br><small><i>{{ role.user.user.interests }}</i></small>

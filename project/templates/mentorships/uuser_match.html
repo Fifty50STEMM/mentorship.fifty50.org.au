@@ -3,54 +3,56 @@
 
 {% block content %}
 
+{{ request }} {{ done }}
 
+<form method="post" action=".">{% csrf_token %}
+
+<button type="submit" class="btn btn-success">Post Matches >> </button>
+  
 <div class="container">
 <div class="row">
   <div class="col-6 match bucket">
-    {% for person in mentees %}
-    <div class="card card-outline-primary" data-child-id="{{ person.pk }}">
-      [MENTEE] {% include "mentorships/_uuser_card.html" %}
+    {% for role in mentees %}
+    <div class="card card-outline-primary" data-child-id="{{ role.pk }}">
+      <small class="alert alert-info">[MENTEE]</small> {% include "mentorships/_uuser_card.html" %}
     </div>
     {% endfor %}
   </div>
 
-  <div class="col-6 bucket">
-    {% for person in mentors %}
-    <div class="col-6 match">
-      <div class="card card-outline-info"
-           data-rel-id="new:{{ person.pk }}"
+  <div class="col-6 bucket" id="target-bucket">
+    {% for role in mentors %}
+    <div class="col-6 match"  data-id="{{ role.pk }}"
+           data-rel-id="new:{{ role.pk }}"
            data-child-id=""
-           data-parent-id="{{ person.pk }}">
-        [MENTOR] {% include "mentorships/_uuser_card.html" %}
+           data-parent-id="{{ role.pk }}"
+           id="card-{{ role.pk }}">
+      <div class="card card-outline-info"
+           data-rel-id="new:{{ role.pk }}"
+           data-child-id=""
+           data-parent-id="{{ role.pk }}">
+        <input type="hidden" id="input-{{ role.pk }}" name="mentor-{{ role.pk }}" value="">
+        <small class="alert alert-success">[MENTOR]</small> {% include "mentorships/_uuser_card.html" %}
       </div>
     </div>
     {% endfor %}
-  </div>
+  </div> 
 </div>
 </div>
+
+</form>
 
   {{mentors}}
 
-  {{matched}}
+
   
 {% endblock %}
 
 
 
-<div class="card card-outline-primary" data-child-id="15">
-      [MENTEE] <b>Miguelina</b>
-[f]<br>
-<small>
-  Master of Engineering in Digital Systems and Telecommunications
-  </small>
-<br><small><i>water polo, Finance and swimming</i></small>
-
-    </div>
-
 {% block footer %}
 {% endblock footer %}
 
-{% block css %}
+{% block styles %}
 {{ block.super}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css" integrity="sha256-iVhQxXOykHeL03K08zkxBGxDCLCuzRGGiTYf2FL6mLY=" crossorigin="anonymous" />
 <style>
@@ -91,7 +93,11 @@
 
 input {
     width: 20px;
-}
+  }
+
+  .alert {
+  padding: 0 2px;
+  }
 </style>
 
 {% endblock %}
@@ -108,17 +114,23 @@ $(document).ready(function(){
   matchUp.on('drop', function(el, target, source){
     var target = $(target);
     var source = $(source);
+    var input = $("#input-" + target[0].id.split("-")[1]);
+    input.val($(el).data('child-id'));
 
-    console.log(source)
-    console.log(target)
 
     target.data('child-id', $(el).data('child-id'));
 
     // Remove child from source so not duplicated.
     source.data('child-id', '');
+    var old_input = $("#input-" + source[0].id.split("-")[1]);
+    old_input.val('');
+
+    console.log("new input: " + input.val())
+    console.log("old input: " + old_input.val())
 
     console.log(source.data('parent-id') + " => " + source.data('child-id'))
     console.log(target.data('parent-id') + " => " + target.data('child-id'))
+
 
     if(target.children().length > 2){
       console.log(target.children().length)

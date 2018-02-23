@@ -86,6 +86,8 @@ class UniversitySession(models.Model):
 
     session = models.ForeignKey('mentorships.Session')
 
+    # @@ TODO changing current session should resave all UniversityUser objects
+    # to update "current" status for them.
     current = models.BooleanField(default=True)
 
     def __str__(self):
@@ -162,25 +164,53 @@ class UserUniversity(models.Model):
         'universities.Method',
         verbose_name=_('What will be your medium of interaction in the program?'))
 
+    degree_major = models.ForeignKey(
+        'universities.Program', null=True, blank=True)
+
+    is_current_mentor = models.BooleanField(default=False)
+
+    is_current_mentee = models.BooleanField(default=False)
+
+    # mentors = models.ManyToManyField('mentorships.Relationship',
+    #                                  through='Relationship',
+    #                                  through_fields=('roup', 'person'),
+    #                                  )
+
     class Meta:
         verbose_name_plural = "university users"
-
-    @property
-    def degree_major(self):
-        return self.userdegree_set.filter(major=1)[0]
-
-    @property
-    def degree_minor(self):
-        if self.userdegree_set.filter(major=0):
-            return self.userdegree_set.get(major=0)
-
-    def get_absolute_url(self):
-        return reverse('uuser_detail', kwargs={'slug': self.uni_id})
+        ordering = ('degree_major',)
 
     def __str__(self):
         return "{uni}: {user}".format(
             user=self.user.full_name,
             uni=self.university.abbreviation)
+
+    def get_degree_major(self):
+        try:
+            return self.userdegree_set.filter(major=1)[0]
+        except IndexError:
+            return None
+
+    def get_degrees_minor(self):
+        minor_set = self.userdegree_set.filter(major=0)
+        if minor_set:
+            return minor_set
+        else:
+            return None
+
+    def get_current_role_mentor(self):
+        return self.userrole_set.filter(university_session__current=True, role='mentor')
+
+    def get_current_role_mentee(self):
+        return self.userrole_set.filter(university_session__current=True, role='mentee')
+
+    def get_absolute_url(self):
+        return reverse('uuser_detail', kwargs={'slug': self.uni_id})
+
+    def save(self, *args, **kwargs):
+        if self.get_degree_major():
+            self.degree_major = self.get_degree_major().program
+        super(UserUniversity, self).save(*args, **kwargs)
 
 
 @python_2_unicode_compatible
@@ -253,10 +283,10 @@ class Relationship(models.Model):
     university_session = models.ForeignKey('mentorships.UniversitySession')
 
     mentor = models.ForeignKey(
-        'mentorships.UserUniversity', related_name='mentor')
+        'mentorships.UserRole', related_name='mentor')
 
     mentee = models.ForeignKey(
-        'mentorships.UserUniversity', related_name='mentee')
+        'mentorships.UserRole', related_name='mentee')
 
     method = models.ForeignKey('universities.Method')
 
@@ -271,13 +301,6 @@ class Relationship(models.Model):
         # @@ TODO write tests for this
         if not self.id:
             new_object = True
-            role_mentor = UserRole.objects.filter(
-                user=self.mentor, role='mentor', relationship__isnull=True)
-            role_mentee = UserRole.objects.filter(
-                user=self.mentee, role='mentee', relationship__isnull=True)
-            if not role_mentee and role_mentor:
-                raise ValidationError(
-                    _("Role for either mentor or mentee does not exist: {} => {}".format(self.mentor, self.mentee)))
 
         super(Relationship, self).save(*args, **kwargs)
         """Associate new `Relationship` with `UserRole`s.
@@ -285,9 +308,9 @@ class Relationship(models.Model):
         has been run for this object.
         """
         if new_object:
-            role_mentor[0].relationship = self
-            role_mentor[0].is_active = True
-            role_mentor[0].save()
-            role_mentee[0].relationship = self
-            role_mentee[0].is_active = True
-            role_mentee[0].save()
+            self.mentor.relationship = self
+            self.mentor.is_active = True
+            self.mentor.save()
+            self.mentee.relationship = self
+            self.mentee.is_active = True
+            self.mentee.save()

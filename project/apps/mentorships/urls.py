@@ -11,7 +11,7 @@ urlpatterns = [
         views.UserRoleMatchView.as_view(), name='uuser_match'),
 
     # @@TODO ANU specific slug
-    url(r"^ANU/(?P<slug>[us0-9]+)/$",
+    url(r"^ANU/(?P<slug>[-\w]+)/$",
         views.UserUniversityDetailView.as_view(), name='uuser_detail'),
 
 ]

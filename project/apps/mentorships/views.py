@@ -5,7 +5,8 @@ from django.views import generic
 
 
 from .forms import SignupForm
-from .models import UserUniversity, UserRole, UniversitySession, UserDegree
+from .models import UserUniversity, UserRole, UniversitySession, UserDegree, Relationship
+from project.apps.universities.models import Method
 
 from project.users.models import User
 
@@ -65,7 +66,6 @@ class UserUniversityCreateView(SuccessMessageMixin, generic.edit.CreateView):
                 n = 1
                 if role == 'mentor':
                     n = form.cleaned_data['mentee_number']
-                    print(" ** ", form.cleaned_data['mentee_number'])
 
                 for x in range(0, n):
                     new_role = UserRole(
@@ -98,11 +98,32 @@ class UserUniversityCreateView(SuccessMessageMixin, generic.edit.CreateView):
             return super().post(request, *args, **kwargs)
 
 
-class UserRoleMatchView(generic.TemplateView):
+class UserRoleMatchView(SuccessMessageMixin, generic.TemplateView):
 
     template_name = 'mentorships/uuser_match.html'
+    success_message = 'Saved.'
 
     # @@ TODO differentiate sessions using URL params/current session
+
+    def post(self, request, *args, **kwargs):
+        # super(UserRoleMatchView, self).post(request, *args, **kwargs)
+        context = self.get_context_data(**kwargs)
+        for key in request.POST:
+            if request.POST[key]:
+                if key[:6] == "mentor":
+                    # print(key.split("-"), request.POST[key])
+                    mentor = UserRole.objects.get(pk=key.split("-")[1])
+                    mentee = UserRole.objects.get(pk=request.POST[key])
+                    new_relationship = Relationship(
+                        mentor=mentor,
+                        mentee=mentee,
+                        university_session=UniversitySession.objects.get(
+                            current=True),
+                        method=Method.objects.first())
+                    new_relationship.save()
+                    # print(key.split("-"), request.POST[key])
+                    print(mentor, mentee)
+        return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
         context = super(UserRoleMatchView, self).get_context_data(**kwargs)
@@ -112,4 +133,5 @@ class UserRoleMatchView(generic.TemplateView):
             role='mentee', relationship__isnull=True)
         context['matched'] = UserRole.objects.filter(
             relationship__isnull=False)
+        context['done'] = Relationship.objects.all()
         return context
